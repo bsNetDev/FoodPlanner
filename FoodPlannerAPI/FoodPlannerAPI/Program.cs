@@ -3,18 +3,25 @@ using FoodPlanner.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<FoodPlannerDB>(options => options.UseInMemoryDatabase("FoodPlannerDB"));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
-
+app.UseCors("AllowAll");
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-
 
 app.MapGet("/login/{email}/{password}", (string email, string password, FoodPlannerDB db) => {
     var user = db.Users.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
@@ -31,7 +38,7 @@ app.MapGet("/getUsers", async (FoodPlannerDB db) => {
 app.MapPost("/createUser", async (FoodPlannerDB db, User user) =>
 {
     var existingUser = db.Users.FirstOrDefault(u => u.Email == user.Email);
-
+ 
     if (existingUser == null) {
         await db.Users.AddAsync(user);
         await db.SaveChangesAsync();
