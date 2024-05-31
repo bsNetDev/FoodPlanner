@@ -16,7 +16,6 @@ export class FoodPlannerservice {
   returnMessage: Object = "";
 
   createUser(email: string, password: string) {
-    console.log("in createUser in service");
 
     let newUser = {
       "email": email,
@@ -25,5 +24,11 @@ export class FoodPlannerservice {
 
     let url = "http://localhost:5241/createUser";
     return this.http.post(url, newUser);
+  }
+
+  getUsers() {
+    console.log("in getUsers");
+    let url = "http://localhost:5241/getUsers"
+    return this.http.get(url);
   }
 }

@@ -11,9 +11,11 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from "@angular/material/list";
 import { HomeComponent } from './Components/home/home.component';
 import { CreateuserComponent } from './Components/createuser/createuser.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DisplayUsersComponent } from './Components/displayusers/displayusers.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     FoodPlannerMenu,
     Card,
     HomeComponent,
-    CreateuserComponent
+    CreateuserComponent,
+    DisplayUsersComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatInputModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { FoodPlannerservice } from '../foodplannerservice.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-createuser',
