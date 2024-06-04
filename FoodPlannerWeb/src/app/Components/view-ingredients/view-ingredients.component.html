@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-card-header>Here are the current users.</mat-card-header>
+    <mat-card-content>
+        <mat-list *ngFor="let ing of ingredients">
+            <span matListItemTitle>{{ ing.name }}</span>
+            <span matListItemLine>Measruement: {{ ing.measurement }}</span>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

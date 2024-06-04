@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DisplayUsersComponent } from './Components/displayusers/displayusers.component';
 import { CreateRecipeComponent } from './Components/create-recipe/create-recipe.component';
 import { AddIngredientComponent } from './Components/add-ingredient/add-ingredient.component';
+import { ViewIngredientsComponent } from './Components/view-ingredients/view-ingredients.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddIngredientComponent } from './Components/add-ingredient/add-ingredie
     CreateuserComponent,
     DisplayUsersComponent,
     CreateRecipeComponent,
-    AddIngredientComponent
+    AddIngredientComponent,
+    ViewIngredientsComponent
   ],
   imports: [
     BrowserModule,

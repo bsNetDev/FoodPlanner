@@ -42,4 +42,10 @@ export class FoodPlannerservice {
     let url = "http://localhost:5241/addIngredient";
     return this.http.post(url, newIngredient);
   }
+
+  getIngredients() {
+    console.log("in getingredients");
+    let url = "http://localhost:5241/getIngredients"
+    return this.http.get(url);
+  }
 }
