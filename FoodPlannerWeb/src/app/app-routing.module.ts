@@ -5,6 +5,8 @@ import { CreateuserComponent } from './Components/createuser/createuser.componen
 import { DisplayUsersComponent } from './Components/displayusers/displayusers.component';
 import { AddIngredientComponent } from './Components/add-ingredient/add-ingredient.component';
 import { ViewIngredientsComponent } from './Components/view-ingredients/view-ingredients.component';
+import { CreateRecipeComponent } from './Components/create-recipe/create-recipe.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -25,6 +27,10 @@ const routes: Routes = [
   {
     path: 'viewIngredients',
     component: ViewIngredientsComponent
+  },
+  {
+    path: 'createRecipe',
+    component: CreateRecipeComponent
   },
 ];
 

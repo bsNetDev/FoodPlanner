@@ -1,1 +1,41 @@
 
+<food-planner-card [cardMessage]="message"></food-planner-card>
+
+<form [formGroup]="createRecipeForm" (ngSubmit)="createRecipe()">
+<mat-card>
+    <mat-card-content>
+        <mat-form-field>
+            <mat-label>Recipe Name</mat-label>
+            <input formControlName="recipeName" matInput>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+            <mat-label>Select a user.</mat-label>
+            <mat-select formControlName="userId">
+                <mat-option *ngFor="let user of users" [value]="user.userId">{{user.email}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br />
+        <mat-form-field>
+            <mat-label>Select an ingredient.</mat-label>
+            <mat-select formControlName="ingredientId">
+                <mat-option *ngFor="let ing of ingredients" [value]="ing.ingredientId">{{ing.name}}
+                    <mat-label>{{ ing.measurement }}</mat-label>
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <input formControlName="number" matInput>
+    </mat-card-content>
+    <mat-card-footer>
+        <button mat-raised-button (click)="addToRecipe(); $event.preventDefault()">Add to recipe</button>
+        <mat-list>
+            <mat-list-item *ngFor="let item of recipeItems">{{ item.name }} {{ item.number }} {{ item.measurement }}</mat-list-item>
+        </mat-list>
+    </mat-card-footer>
+</mat-card>
+<button mat-raised-button (click)="createRecipe()">Create the recipe</button>
+</form>
+
+<mat-card>
+    <mat-card-content>{{ returnMessage }}</mat-card-content>
+</mat-card>

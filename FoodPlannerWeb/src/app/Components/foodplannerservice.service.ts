@@ -48,4 +48,9 @@ export class FoodPlannerservice {
     let url = "http://localhost:5241/getIngredients"
     return this.http.get(url);
   }
+
+  addRecipe(recipeItems: any[]) {
+    let url = "http://localhost:5241/addRecipe";
+    return this.http.post(url, recipeItems);
+  }
 }

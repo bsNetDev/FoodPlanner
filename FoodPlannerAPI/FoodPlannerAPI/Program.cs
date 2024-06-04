@@ -69,17 +69,11 @@ app.MapGet("/getRecipes", async (FoodPlannerDB db) => {
     return await db.Recipes.ToListAsync();
 });
 
-app.MapPost("/addRecipe", async (FoodPlannerDB db, Recipe recipe) =>
+app.MapPost("/addRecipe", async (FoodPlannerDB db, Recipe[] recipeItems) =>
 {
-    var existingRecipe = db.Recipes.FirstOrDefault(rec => rec.IngredientId == recipe.IngredientId && rec.UserId == recipe.UserId);
-
-    if (existingRecipe == null) {
-        await db.Recipes.AddAsync(recipe);
-        await db.SaveChangesAsync();
-        return Results.Created($"/recipes/{recipe}", recipe);
-    }
-    else
-        return Results.Created($"/recipes/{recipe}", "Recipe is already in the database.");
+    await db.Recipes.AddRangeAsync(recipeItems);
+    await db.SaveChangesAsync();
+    return Results.Created($"/recipes/{recipeItems}", recipeItems);
 });
 
 app.Run();
