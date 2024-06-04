@@ -15,9 +15,10 @@ export class DisplayUsersComponent implements OnInit {
   }
 
   getUsers() {
-    this.service.getUsers().subscribe(
-      (response) => {this.users = response; console.log(response) },
-      (error) => { console.log(error) }
-    );
+    this.service.getUsers().subscribe( {
+      next: (res) => { this.users = res; },
+      error: (error) => { console.log(error) },
+      complete: () => { console.log('complete') }
+    });
   }
 }

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 import { CreateuserComponent } from './Components/createuser/createuser.component';
 import { DisplayUsersComponent } from './Components/displayusers/displayusers.component';
-
+import { AddIngredientComponent } from './Components/add-ingredient/add-ingredient.component';
 const routes: Routes = [
   {
     path: '',
@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: 'getUsers',
     component: DisplayUsersComponent
+  },
+  {
+    path: 'addIngredient',
+    component: AddIngredientComponent
   },
 ];
 

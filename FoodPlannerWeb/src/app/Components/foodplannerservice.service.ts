@@ -31,4 +31,15 @@ export class FoodPlannerservice {
     let url = "http://localhost:5241/getUsers"
     return this.http.get(url);
   }
+
+  addIngredient(name: string, measurement: string) {
+
+    let newIngredient = {
+      "name": name,
+      "measurement": measurement
+    };
+
+    let url = "http://localhost:5241/addIngredient";
+    return this.http.post(url, newIngredient);
+  }
 }

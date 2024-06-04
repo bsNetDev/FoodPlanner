@@ -12,10 +12,13 @@ import {MatCardModule} from '@angular/material/card';
 import { MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from "@angular/material/list";
+import {MatSelectModule} from '@angular/material/select';
 import { HomeComponent } from './Components/home/home.component';
 import { CreateuserComponent } from './Components/createuser/createuser.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DisplayUsersComponent } from './Components/displayusers/displayusers.component';
+import { CreateRecipeComponent } from './Components/create-recipe/create-recipe.component';
+import { AddIngredientComponent } from './Components/add-ingredient/add-ingredient.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { DisplayUsersComponent } from './Components/displayusers/displayusers.co
     Card,
     HomeComponent,
     CreateuserComponent,
-    DisplayUsersComponent
+    DisplayUsersComponent,
+    CreateRecipeComponent,
+    AddIngredientComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +41,8 @@ import { DisplayUsersComponent } from './Components/displayusers/displayusers.co
     MatInputModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatListModule
+    MatListModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

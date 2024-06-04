@@ -25,10 +25,10 @@ export class CreateuserComponent {
     let password: string | null = this.createUserForm.controls.password.value!;
 
     try {
-      this.service.createUser(email, password).subscribe(
-        (response) => {this.returnMessage = `The following user was created: ${JSON.stringify(response)}`},
-        (error) => { console.log(error) }
-      );;
+      this.service.createUser(email, password).subscribe({
+        next: (response) => {this.returnMessage = `The following user was created: ${JSON.stringify(response)}`},
+        error: (error) => { console.log(error) }
+      });;
     } catch(e) {
       console.error(e);
       return;
